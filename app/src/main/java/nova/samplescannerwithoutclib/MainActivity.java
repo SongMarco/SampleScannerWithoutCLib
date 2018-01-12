@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.scanlibrary.ScanActivity;
 import com.scanlibrary.ScanConstants;
 
@@ -128,16 +129,19 @@ public class MainActivity extends AppCompatActivity {
         // 리퀘스트 코드, 액티비티에서 반환한 결과값이 정상이면 이미지뷰 세팅
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 
-            
+
             Uri uri = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);
             Bitmap bitmap = null;
 
-            //이미지뷰에 세팅
+            //이미지뷰에 비트맵을 세팅.
             try {
+
+                // uri 에서 비트맵을 가져온다.
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 getContentResolver().delete(uri, null, null);
 
-                scannedImageView.setImageBitmap(bitmap);
+                //비트맵을 이미지뷰에 세팅한다.
+                Glide.with(this).load(bitmap).into(scannedImageView);
             }
 
             catch (IOException e) {

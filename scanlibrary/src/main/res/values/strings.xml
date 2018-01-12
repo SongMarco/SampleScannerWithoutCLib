@@ -13,4 +13,12 @@
     <string name="applying_filter">Applying filter</string>
     <string name="low_memory">Low Memory</string>
     <string name="low_memory_message">Your phone is low on memory, you may feel some lags while editing images.</string>
+
+
+
+    <string name="custom_close_text">Custom Close</string>
+
+    <string name="rationale_title">권한이 필요합니다.</string>
+    <string name="rationale_message">당신의 컨텐츠에 접근하려면 권한이 필요합니다.</string>
+
 </resources>
